@@ -1,0 +1,19 @@
+---
+- summary: |
+    Пользователь должен иметь возможность зарегистрироваться на сайте
+  requirement: |
+    При правильном заполнение полей регистрации пользователь должен успешно зарегестрироваться
+  prerequisites: |
+    Открыта страница регистрации 
+  test-data: |
+    Nickname = Dima
+    Email = dimadd@mail.ru
+    Password = password
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Вводим повторно Password
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Пользователь должен успешно зарегестрироваться
