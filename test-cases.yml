@@ -4,10 +4,10 @@
   requirement: |
     Пользователь должен иметь возможность зарегистрироваться на сайте
   prerequisites: |
-    Открыта главная страница Codebattle 
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     Nickname = Dima
-    Email = dimadd@mail.ru
+    Email = любой новый email
     Password = password
   steps:
     - Нажимаем кнопку "sign up"
@@ -17,14 +17,47 @@
     - Вводим повторно Password
     - Нажимаем кнопку «Submit»
   expected-result: |
-    Пользователь должен успешно зарегестрироваться
+    Открывается главная страница с активной вкладкой лобби
+    
+- summary: |
+    Проверка авторизации на сайте c существующим email
+  requirement: |
+    Пользователь должен успешно авторизоваться на сайте
+  prerequisites: | 
+    Открыта страница авторизации https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    Email = test2test@mail.ru
+    Password = password
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Открывается главная страница с активной вкладкой лобби
+    
+- summary: |
+    Проверка авторизации на сайте c несуществующим email
+  requirement: |
+    Пользователь должен получить сообщение о не найденном email
+  prerequisites: |
+    Открыта страница авторизации https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  test-data: |
+    Email = testautoriz@mail.ru 
+    Password = password
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Появляется сообщение об ошибке "email не найден"
     
 - summary: |
     Возможность запуска игры с ботом
   requirement: |
     Пользователь должен иметь возможность запустить игру с ботом
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -39,7 +72,8 @@
   requirement: |
     Сайт должен быть безопасным и защищать данные пользователя
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -52,7 +86,8 @@
   requirement: |
     Сайт должен быть удобным на мобильном устройстве
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -70,14 +105,15 @@
   requirement: |
     Сайт должен быть протестирован на совместимость с последними версиями браузеров
   prerequisites: |
-    Открыта главная страница codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
    Сайт для проверки = https://www.browserstack.com/
   steps:
-    - переходим по ссылке https://www.browserstack.com/
+    - Переходим по ссылке https://www.browserstack.com/
     - Нажимаем на кнопку "Go to dashboard".
-    - выбираем нужные параметры для теста.
-    - проверяем сайт во всех последних версиях браузеров.
+    - Выбираем нужные параметры для теста.
+    - Во всех версиях браузеров открываем основные разделы (My profile, Users rating) и создаём новую игру "Create a game"
   expected-result: |
     Сайт должен быть совместим со всеми последними версиями браузеров.
     
@@ -86,7 +122,8 @@
   requirement: |
     На сайте должна быть табилца рейтинга пользователей
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -100,7 +137,9 @@
   requirement: |
     На сайте должна быть личная статистика побед и поражений пользователя
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    У пользователя есть несколько сыгранных матчей
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -114,7 +153,8 @@
   requirement: |
     Пользователь может выбрать игру по уровню сложность
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
@@ -129,12 +169,16 @@
   requirement: |
     Пользователь должен иметь возможность видеть код соперника
   prerequisites: |
-    Открыта главная страница Codebattle
+    Пользователь авторизован на сайте
+    Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
     []
   steps:
     - Нажимаем кнопку "Create a game"
-    - Выбираем желаемые параметры подбора игры
+    - Выбираем уровень сложности "4 звезды"
+    - Выбираем тип игры "with a bot"
+    - Выбираем контроль времени "8 мин"
+    - Выбираем тег "Math"
     - Нажимаем "Create battle"
   expected-result: |
     В созданной игре пользователь видит код соперника
