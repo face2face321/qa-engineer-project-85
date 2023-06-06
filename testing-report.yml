@@ -4,6 +4,14 @@
   status: pass
   
 - summary: |
+    Проверка авторизации на сайте c существующим email
+  status: pass
+  
+- summary: |
+    Проверка авторизации на сайте c несуществующим email
+  status: pass
+  
+- summary: |
     Возможность запуска игры с ботом
   status: pass
   
