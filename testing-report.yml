@@ -16,6 +16,14 @@
   status: pass
   
 - summary: |
+    Возможность запуска игры с другом
+  status: pass
+  
+- summary: |
+    Возможность запуска игры с другим игроком
+  status: pass
+  
+- summary: |
     Безопасность и защита данных пользователя
   status: pass
   
