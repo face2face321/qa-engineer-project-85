@@ -81,7 +81,7 @@
     - Выбираем тип игры "with a friend"
     - Во вкладке "Choose opponent" выбираем nickname второго аккаунта
     - Нажимаем кнопку "Create invite"
-    - Принимаем инвайн с помощью кнопки "Accept" со второго аккаунта
+    - Принимаем инвайт с помощью кнопки "Accept" со второго аккаунта
   expected-result: |
     Должна запуститься игра с другом
     
@@ -247,13 +247,12 @@
     Пользователь авторизован на сайте
     Открыта главная страница сайта https://codebattle.hexlet.io/
   test-data: |
-    Верный вариан решения для победы
+    Верный вариант решения для победы
     const _ = require("lodash");
-const R = require("rambda");
-
-const solution = (width, length) => {
-  return width * length;
-};
+    const R = require("rambda");
+    const solution = (width, length) => {
+    return width * length;
+    };
 
 module.exports = solution;
   steps:
